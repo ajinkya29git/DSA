@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "Tree"
+		},
+		{
+			"path": "Array"
 		}
 	],
 	"settings": {}
