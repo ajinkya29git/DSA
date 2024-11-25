@@ -100,15 +100,15 @@ public static class Tree
     }
     public static void Main()
     {
-        //Height
+        //1 Height
         Console.WriteLine($"Height of the tree : {Height.height(root)}");
 
-        //BFS
+        //2 BFS
         Console.WriteLine($"BFS Traversal of the tree : ");
         BFS.bfs(root);
         Console.WriteLine("");
 
-        //BFS with Levels
+        //3 BFS with Levels
         Console.WriteLine($"BFS Traversal of the tree and Levels : ");
         BFS.bfsLevelWise(root);
 
