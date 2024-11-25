@@ -10,15 +10,16 @@ class DFS
     {
         visited[s] = true;
         
-        Console.Write(s + " -> ");
+        Console.Write(s + " ");
 
+        //Loop through all edges of that Node
         foreach(int i in Graph.adj[s])
         {
-            Console.Write( i + " ");
+            // Console.Write( i + " ");
             
             if(!visited[i])
             {
-                Console.WriteLine();
+                // Console.WriteLine();
                 dfsRec(i);
             }
             
@@ -34,7 +35,7 @@ class DFS
             if(!visited[i])
             {   
                 dfsRec(i);
-                Console.WriteLine();
+                // Console.WriteLine();
             }
         }
         
