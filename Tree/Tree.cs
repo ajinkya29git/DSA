@@ -83,20 +83,67 @@ public class BFS
     }
 }
 
+public class DFS
+{
+    public static void VLR(Node node, List<int> vlr)
+    {
+        if(node == null)
+            return;
+
+        vlr.Add(node.data);  
+
+        VLR(node.left, vlr);
+
+        VLR(node.right, vlr);
+
+    }
+
+    public static void LVR(Node node, List<int> lvr)
+    {
+        if(node == null)
+            return;  
+
+        LVR(node.left, lvr);
+
+        lvr.Add(node.data);
+
+        LVR(node.right, lvr);
+
+    }
+
+    public static void LRV(Node node, List<int> lrv)
+    {
+        if(node == null)
+            return;
+
+        LRV(node.left, lrv);
+
+        LRV(node.right, lrv);
+
+        lrv.Add(node.data);
+    }
+}
 public static class Tree
 {   
     public static Node root;
 
     static Tree()
     {
-        root = new Node(1);
-        root.left = new Node(2);
-        root.left.left = new Node(3);
-        root.left.left.left = new Node(4);
-        root.left.right = new Node(5);
-        root.left.right.left = new Node(6);
-        root.left.right.left.right = new Node(7);
-        root.left.right.left.right.left = new Node(8);
+        // root = new Node(1);
+        // root.left = new Node(2);
+        // root.left.left = new Node(3);
+        // root.left.left.left = new Node(4);
+        // root.left.right = new Node(5);
+        // root.left.right.left = new Node(6);
+        // root.left.right.left.right = new Node(7);
+        // root.left.right.left.right.left = new Node(8);
+
+        root = new Node(4);
+        root.left = new Node(8);
+        root.left.left = new Node(0);
+        root.left.right = new Node(1);
+        root.right = new Node(5);
+        root.right.right = new Node(6);
     }
     public static void Main()
     {
@@ -112,6 +159,20 @@ public static class Tree
         Console.WriteLine($"BFS Traversal of the tree and Levels : ");
         BFS.bfsLevelWise(root);
 
+        //4 DFS Pre Order
+        List<int> vlr = new List<int>();
+        DFS.VLR(root, vlr);
+        Console.WriteLine("Pre Order Traversal : " + string.Join(",", vlr));
+
+        //5 DFS In Order
+        List<int> lvr = new List<int>();
+        DFS.LVR(root, lvr);
+        Console.WriteLine("In Order Traversal : " + string.Join(",", lvr));
+
+        //6 DFS Post Order
+        List<int> lrv = new List<int>();
+        DFS.LRV(root, lrv);
+        Console.WriteLine("Post Order Traversal : " + string.Join(",", lrv));
 
     }
 }
