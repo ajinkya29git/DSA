@@ -7,9 +7,15 @@ class Graph
 {
     public static int V = 6;
 
-    //creates an Array of List<int> objects. Array size is V
-    // public static List<List<int>> adj = new List<List<int>>(new List<int> [V]);
+    //1st method to represent Graph - creates an Array of List<int> objects. Array size is V
+    // public static List<int>[] adj = new List<int>[V];
+    
+    //2nd method - creates an outer list of size V (passing V is optional here)
     public static List<List<int>> adj = new List<List<int>>(V);
+
+    //3rd method
+    // public static Dictionary<int, List<int>> graph = new Dictionary<int, List<int>>();
+
 
     //Fn to create Adj list from edge list
     static void AddEdge((int, int) edge)
@@ -37,6 +43,10 @@ class Graph
         {
             // adj[i] = new List<int>();
             adj.Add(new List<int>());
+            /* 
+            if (!graph.ContainsKey(i))
+                graph[i] = new List<int>();
+            */
         }
 
         var edges = new List<(int, int)> {(1,2),(1,0),(2,0),(2,3),(2,4),(5,5)};
