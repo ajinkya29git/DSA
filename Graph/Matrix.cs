@@ -99,6 +99,7 @@ public static class Matrix
     public static void bfsInMatrix()
     { 
         BFS(grid, visited, 0, 0);
+        Console.WriteLine("");
     }
 
     public static void dfsInMatrix()

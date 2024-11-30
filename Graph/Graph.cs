@@ -59,15 +59,19 @@ class Graph
         printAdjMtx();
 
         //DFS
-        Console.WriteLine("Complete DFS of the graph");
+        Console.Write("Complete DFS of the graph : ");
         DFS.dfs();
 
         //BFS
-        Console.WriteLine("Complete BFS of the graph");
+        Console.Write("Complete BFS of the graph : ");
         BFS.bfs();
 
+        //BFS Level-wise in Graph
+        Console.WriteLine("Level wise BFS of the Graph");
+        BFS.bfsLevelWise();
+
         //BFS in 2-D Array LC#200
-        Console.WriteLine("Complete BFS of the 2D array");
+        Console.Write("Complete BFS of the 2D array : ");
         Matrix.bfsInMatrix();
 
         //DFS in 2-D Array LC#200
