@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 public class Node
 {
     public int data;
+    
     public Node left, right;
+    
     public Node(int value)
     {
         data = value;
@@ -13,138 +16,37 @@ public class Node
     }
 }
 
-public class Height
-{
-    //This is bottom up approach
-    public static int height(Node node)
-    {
-        if(node == null)
-            return 0;
-        
-        else
-        {   
-            int leftH = height(node.left);
-            int rightH = height(node.right);
-
-            return (Math.Max(leftH, rightH) + 1);
-        }   
-    }
-    
-}
-
-public class BFS
-{
-    public static void bfs(Node root)
-    {
-        Queue<Node> q = new Queue<Node>();
-        
-        q.Enqueue(root);
-        
-        while(q.Count > 0)
-        {
-            Node current = q.Dequeue();
-            Console.Write(current.data + " ");
-
-            if(current.left != null)
-                q.Enqueue(current.left);
-            if(current.right != null)
-                q.Enqueue(current.right);
-        }
-    }
-
-    public static void bfsLevelWise(Node root)
-    {
-        Queue<Node> q = new Queue<Node>();
-
-        q.Enqueue(root);
-        int level = 1;
-
-        while(q.Count > 0)
-        {
-            int levelSize = q.Count;
-
-            //This extra for loop compared to normal BFS
-            for(int i = 0; i < levelSize; i++)
-            {
-                Node current = q.Dequeue();
-
-                Console.WriteLine(current.data + " : " + level);
-
-                if(current.left != null)
-                    q.Enqueue(current.left);
-                
-                if(current.right != null)
-                    q.Enqueue(current.right);
-            }
-
-            level++;
-            
-        }
-    }
-}
-
-public class DFS
-{
-    public static void VLR(Node node, List<int> vlr)
-    {
-        if(node == null)
-            return;
-
-        vlr.Add(node.data);  
-
-        VLR(node.left, vlr);
-
-        VLR(node.right, vlr);
-
-    }
-
-    public static void LVR(Node node, List<int> lvr)
-    {
-        if(node == null)
-            return;  
-
-        LVR(node.left, lvr);
-
-        lvr.Add(node.data);
-
-        LVR(node.right, lvr);
-
-    }
-
-    public static void LRV(Node node, List<int> lrv)
-    {
-        if(node == null)
-            return;
-
-        LRV(node.left, lrv);
-
-        LRV(node.right, lrv);
-
-        lrv.Add(node.data);
-    }
-}
 public static class Tree
 {   
-    public static Node root;
+    public static Node root, root2, root3;
 
     static Tree()
     {
-        // root = new Node(1);
-        // root.left = new Node(2);
-        // root.left.left = new Node(3);
-        // root.left.left.left = new Node(4);
-        // root.left.right = new Node(5);
-        // root.left.right.left = new Node(6);
-        // root.left.right.left.right = new Node(7);
-        // root.left.right.left.right.left = new Node(8);
+        root = new Node(1);
+        root.left = new Node(2);
+        root.left.left = new Node(3);
+        root.left.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.left.right.left = new Node(6);
+        root.left.right.left.right = new Node(7);
+        root.left.right.left.right.left = new Node(8);
 
-        root = new Node(4);
-        root.left = new Node(8);
-        root.left.left = new Node(0);
-        root.left.right = new Node(1);
-        root.right = new Node(5);
-        root.right.right = new Node(6);
+        root2 = new Node(4);
+        root2.left = new Node(8);
+        root2.left.left = new Node(0);
+        root2.left.right = new Node(1);
+        root2.right = new Node(5);
+        root2.right.right = new Node(6);
+
+        root3 = new Node(3);
+        root3.left = new Node(5);
+        root3.left.left = new Node(6);
+        root3.left.right = new Node(2);
+        root3.left.right.left = new Node(7);
+        root3.left.right.right = new Node(4);
+        root3.right = new Node(1);
     }
+    
     public static void Main()
     {
         //1 Height
@@ -157,7 +59,7 @@ public static class Tree
 
         //3 BFS with Levels
         Console.WriteLine($"BFS Traversal of the tree and Levels : ");
-        BFS.bfsLevelWise(root);
+        BFS.bfsLevelWise(root2);
 
         //4 DFS Pre Order
         List<int> vlr = new List<int>();
@@ -173,6 +75,12 @@ public static class Tree
         List<int> lrv = new List<int>();
         DFS.LRV(root, lrv);
         Console.WriteLine("Post Order Traversal : " + string.Join(",", lrv));
+
+        //7 Tree to Graph
+        Console.WriteLine("Graph representation of the give Tree is : ");
+        Dictionary<int, List<int>> graph = new Dictionary<int, List<int>>();
+        Tree2Graph.BuildGraph(root3, graph);
+        Tree2Graph.PrintGraph(graph);
 
     }
 }
