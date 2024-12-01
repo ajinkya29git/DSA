@@ -18,12 +18,12 @@ class BFS
                 
                 while(q.Count > 0)
                 {
-                    int s = q.Dequeue();
-                    Console.Write(s + " ");
+                    int currentNode = q.Dequeue();
+                    Console.Write(currentNode + " ");
 
-                    for(int n = 0; n<Graph.adj[s].Count; n++)
+                    for(int n = 0; n<Graph.adj[currentNode].Count; n++)
                     {
-                        int node = Graph.adj[s][n];
+                        int node = Graph.adj[currentNode][n];
                         
                         if(!visited[node])
                         {
