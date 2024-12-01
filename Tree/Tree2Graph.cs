@@ -35,6 +35,12 @@ public class Tree2Graph
         if(node==null)
             return;
 
+        //Edge case when Tree has one node only. Ensure the current node is in the graph even if it has no edges
+        if (!graph.ContainsKey(node.val))
+        {
+            graph[node.val] = new List<int>();
+        }
+        
         if(node.left!=null)
         {
             AddEdge(node.data, node.left.data, graph);
