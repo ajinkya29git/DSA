@@ -26,11 +26,11 @@ public class Solution
         if(p.val != q.val)
             return false;
         
-        bool ansLeft = dfs(p.left, q.left);
+        bool ansLeft = dfs(p.left, q.left);  //result of Left subtree stored in ansLeft
         
-        bool ansRight = dfs(p.right, q.right);
+        bool ansRight = dfs(p.right, q.right);  //result of Right subtree stored in ansRight
         
-        return ansLeft && ansRight;
+        return ansLeft && ansRight;  //Combining result of Left and Right Subtree
     }
     
     public bool IsSameTree(TreeNode p, TreeNode q) 
