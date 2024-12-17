@@ -1,0 +1,194 @@
+
+ Test Cases
+
+ 1 Basic Functionality
+- Input:
+  
+  capacity = 50
+  val = {60, 100, 120}
+  wt = {10, 20, 30}
+  
+- Output:
+  
+  Maximum value: 220
+  
+- Explanation:
+  - The optimal choice is to include the 1st and 2nd items, achieving a total value of (60 + 100 = 220)
+
+---
+
+ 2 Edge Case: No Items
+- Input:
+  
+  capacity = 50
+  val = {}
+  wt = {}
+  
+- Output:
+  
+  Maximum value: 0
+  
+- Explanation:
+  - With no items to choose from, the knapsack value is (0)
+
+---
+
+ 3 Edge Case: Zero Capacity
+- Input:
+  
+  capacity = 0
+  val = {60, 100, 120}
+  wt = {10, 20, 30}
+  
+- Output:
+  
+  Maximum value: 0
+  
+- Explanation:
+  - A knapsack with (0) capacity cannot hold any items, so the value is (0)
+
+---
+
+ 4 All Items Too Heavy
+- Input:
+  
+  capacity = 5
+  val = {60, 100, 120}
+  wt = {10, 20, 30}
+  
+- Output:
+  
+  Maximum value: 0
+  
+- Explanation:
+  - None of the items can fit within the knapsack's capacity of (5)
+
+---
+
+ 5 Single Item, Fits Exactly
+- Input:
+  
+  capacity = 10
+  val = {60}
+  wt = {10}
+  
+- Output:
+  
+  Maximum value: 60
+  
+- Explanation:
+  - The single item fits perfectly, so the maximum value is (60)
+
+---
+
+ 6 Single Item, Doesn't Fit
+- Input:
+  
+  capacity = 5
+  val = {60}
+  wt = {10}
+  
+- Output:
+  
+  Maximum value: 0
+  
+- Explanation:
+  - The single item is too heavy for the knapsack's capacity
+
+---
+
+ 7 All Items Fit
+- Input:
+  
+  capacity = 60
+  val = {60, 100, 120}
+  wt = {10, 20, 30}
+  
+- Output:
+  
+  Maximum value: 280
+  
+- Explanation:
+  - All items can be included since their combined weight is (10 + 20 + 30 = 60)
+
+---
+
+ 8 Items with the Same Weight but Different Values
+- Input:
+  
+  capacity = 20
+  val = {40, 100, 50}
+  wt = {10, 10, 10}
+  
+- Output:
+  
+  Maximum value: 150
+  
+- Explanation:
+  - Include the 2nd and 3rd items, achieving a total value of (100 + 50 = 150)
+
+---
+
+ 9 Large Capacity but Limited Items
+- Input:
+  
+  capacity = 100
+  val = {10, 20, 30}
+  wt = {5, 10, 15}
+  
+- Output:
+  
+  Maximum value: 60
+  
+- Explanation:
+  - Include all items, achieving a total value of (10 + 20 + 30 = 60)
+
+---
+
+ 10 Large Input Size
+- Input:
+  
+  capacity = 1000
+  val = {10, 40, 30, 50, 70, 90, 100, 130, 160, 200}
+  wt = {5, 10, 20, 30, 40, 50, 60, 70, 80, 90}
+  
+- Output:
+  
+  Maximum value: 1000
+  
+- Explanation:
+  - Include items that fit optimally to reach the capacity of (1000) This tests the algorithm's efficiency with larger inputs
+
+---
+
+ 11 Items with Zero Value
+- Input:
+  
+  capacity = 50
+  val = {0, 0, 0}
+  wt = {10, 20, 30}
+  
+- Output:
+  
+  Maximum value: 0
+  
+- Explanation:
+  - All items have zero value, so the total value is (0)
+
+---
+
+ 12 Items with Zero Weight
+- Input:
+  
+  capacity = 50
+  val = {60, 100, 120}
+  wt = {0, 20, 30}
+  
+- Output:
+  
+  Maximum value: 180
+  
+- Explanation:
+  - The item with (0) weight (1st item) is included by default, and the remaining capacity is used optimally
+
+---
