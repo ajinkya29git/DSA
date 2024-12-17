@@ -6,7 +6,7 @@ class Solution {
   
     int fooRec(int capacity, int index, vector<int> &val, vector<int> &wt)
     {
-        if(index==0 || capacity==0)
+        if(index<0 || capacity==0)  //0 based indexing
             return 0;
         
         if(wt[index] <= capacity)   //take
