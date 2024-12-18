@@ -9,7 +9,7 @@ class Solution {
         if(index<0 || capacity==0)  //0 based indexing
             return 0;
         
-        if(wt[index] <= capacity)   //take
+        if(wt[index] <= capacity)   //take      //condition + 2 recursive calls
         {
             int take = val[index] + fooRec(capacity-wt[index], index-1, val, wt);
             int notTake = fooRec(capacity, index-1, val, wt);
