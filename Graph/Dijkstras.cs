@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 
-public class WeightedGraph
+public class DijkstraDemo
 {
     public int Vertices;
     public List<(int to, int weight)>[] adj;
 
-    public WeightedGraph(int vertices)
+    public DijkstraDemo(int vertices)
     {
         Vertices = vertices;
         adj = new List<(int, int)>[vertices];
@@ -63,13 +63,10 @@ public class WeightedGraph
         }
         return dist;
     }
-}
 
-class Program
-{
-    static void Main(string[] args)
+    public static void Start()
     {
-        WeightedGraph graph = new WeightedGraph(5);
+        DijkstraDemo graph = new DijkstraDemo(5);
         graph.AddEdge(0, 1, 6);
         graph.AddEdge(0, 3, 2);
         graph.AddEdge(1, 2, 5);

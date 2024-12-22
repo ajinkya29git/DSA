@@ -78,6 +78,12 @@ class Graph
         Console.WriteLine("Complete DFS of the 2D array");
         Matrix.dfsInMatrix();
 
+        //Dijkstra algo - shortest path between sources to all other nodes
+        DijkstraDemo.Start();
+
+        //BellmanFord algo - shortest path between sources to all other nodes (having -ve cycles)
+        BellmanFord.BellmanFordDemo();
+
         Console.WriteLine();
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 class BellmanFord
 {
-  public static void BellmanFordShortestPaths(int V, int src, List<List<int>> edges)
+  private static void BellmanFordShortestPaths(int V, int src, List<List<int>> edges)
   {
     int[] dist = new int[V];
     Array.Fill(dist, int.MaxValue);
@@ -52,7 +52,7 @@ class BellmanFord
     }
   }
       
-  static void Main(string[] args)
+  public static void BellmanFordDemo()
   {
     int V = 5;
     List<List<int>> edges = new List<List<int>>();
