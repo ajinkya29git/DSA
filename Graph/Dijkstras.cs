@@ -78,6 +78,8 @@ public class DijkstraDemo
         int source = 0;
         int[] shortestPaths = graph.Dijkstra(source);
 
+        Console.WriteLine($"Shortest distances from Node {source}: to");
+
         for (int i = 0; i < shortestPaths.Length; i++)
         {
             Console.WriteLine($"Node {i}: {shortestPaths[i]}");

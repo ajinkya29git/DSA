@@ -7,6 +7,7 @@ public static class Matrix
     static readonly int COL = 4;
     static readonly bool[,] visited = new bool[ROW,COL];
 
+    //C# 2-D array example
     static int[,] grid = new int[,] {
         { 1, 2, 3, 4 },
         { 5, 6, 7, 8 },
@@ -14,12 +15,13 @@ public static class Matrix
         { 13, 14, 18, 16 }
     };
 
+    //C# Jagged array example
     static int[][] grid2 = {
-        new int[] {1,1,0,0,0},
-        new int[] {1,1,0,0,0},
-        new int[] {0,0,1,0,0},
-        new int[] {0,0,0,1,1}
-    };
+        new int[] { 1, 1, 0, 0 },
+        new int[] { 0, 1, 0, 1 },
+        new int[] { 1, 0, 0, 1 },
+        new int[] { 0, 0, 1, 1 }
+    }; //0-visited  1-unvisited
 
     // Direction vectors in which we can explore
     static int[] dRow = { -1, 0, 1, 0 };
@@ -80,7 +82,8 @@ public static class Matrix
 
     static void DFS(int[][] grid2, int i, int j, int m, int n)
     {
-        grid2[i][j] = 0;
+        grid2[i][j] = 0;   //marking as visited
+        Console.WriteLine($"Visited ({i}, {j})");
 
         if(isCellValid(i, j-1, m, n) && grid2[i][j-1]==1)
             DFS(grid2, i, j-1, m, n);
@@ -111,8 +114,9 @@ public static class Matrix
         {
             for(int j=0; j<n; j++)
             {
-                if(grid2[i][j]=='1')
+                if(grid2[i][j]==1)
                 {
+                    Console.WriteLine($"Starting DFS from ({i}, {j})");
                     DFS(grid2, i, j, m, n);
                 }
                     
