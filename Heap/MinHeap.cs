@@ -6,12 +6,7 @@ public class MinHeap
     private List<int> elements = new List<int>();
 
     // Get the number of elements in the heap
-    public int Size 
-    {
-        get { 
-            return elements.Count; 
-        }
-    }
+    public int Size => elements.Count;
 
     // Return the minimum element (root of the heap)
     public int Peek()
@@ -97,6 +92,7 @@ public class MinHeap
         {
             Console.Write(i + " ");
         }
+        
         Console.WriteLine();
     }
 }
